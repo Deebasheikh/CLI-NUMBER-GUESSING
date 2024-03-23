@@ -8,10 +8,13 @@ import inquirer from "inquirer";
 
 // 3.Compare user input with computer generated number and show result
 
-const randomNumber = Math.floor(Math.random() * 6 +1);
+const main = async () => {
+    let playAgain = true;
+    while (playAgain) {
 
-
-console.log("Welcome to a Number Guessing Game");
+    const randomNumber = Math.floor(Math.random() * 6 +1); //Generating a random number from 1 to 6
+   
+    console.log("👋 Welcome👋 to a Number Guessing Game 🔢");
 
 const answers = await inquirer.prompt([
   {
@@ -21,10 +24,54 @@ const answers = await inquirer.prompt([
   },
 ]);
 
+console.log(`Your guess: ${answers.userGuessedNumber}, Correct answer: ${randomNumber}`);
+
+
+
 if (answers.userGuessedNumber === randomNumber) {
-    console.log("Congratulations! you guessed right number.");
+    console.log("🎉Congratulations! you guessed right number✅.You win🎉");
 
 }
 else {
-    console.log("You guessed wrong number.");
+    console.log("😅 opps!You guessed wrong number❌.Try again!");
 }
+const { playAgainAnswer } = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'playAgainAnswer',
+      message: 'Do you want to play again?',
+      default: true 
+    
+    
+    }
+  ]);
+  playAgain = playAgainAnswer
+  console.log("Thanks for playing. Goodbye!👋")
+
+    }
+
+}
+main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
