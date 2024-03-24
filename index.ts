@@ -14,7 +14,7 @@ const main = async () => {
   let playAgain = true;
   while (playAgain) {
 
-  const randomNumber = Math.floor(Math.random() * 6 +1); //Generating a random number between 1 t
+  const randomNumber = Math.floor(Math.random() * 6 +1); //Generating a random number between 1 to 6
  
   console.log(chalk.bgWhite.bold.magentaBright.italic("👋 Welcome 👋 to a Number Guessing Game 🔢"));
 
